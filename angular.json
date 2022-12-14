@@ -64,7 +64,8 @@
               "browserTarget": "novin:build:production"
             },
             "development": {
-              "browserTarget": "novin:build:development"
+              "browserTarget": "novin:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
