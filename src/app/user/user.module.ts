@@ -6,9 +6,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {UserRoutingModule} from "./user-routing.module";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings} from "ng-recaptcha";
+import {environment} from "../../environment/environment";
+import {NgxCaptchaModule} from "@binssoft/ngx-captcha";
 
 
 
@@ -25,7 +28,17 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxCaptchaModule,
+    FormsModule
+  ],
+  providers:[
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptchaSiteKey,
+      } as RecaptchaSettings,
+    },
   ]
 })
 export class UserModule { }

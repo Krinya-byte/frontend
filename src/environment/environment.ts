@@ -1,3 +1,6 @@
 export const environment = {
-  apiKey: 'api'
+  basicapiPoint: 'api',
+  recaptchaSiteKey: '6LejfIAjAAAAAKLfNdDXnDsjoukE56vPveFEZvck',
+  secretKey : '6LejfIAjAAAAAIKGLcnY2FfuYtgpqaptnWCo5Ldd'
 };
+

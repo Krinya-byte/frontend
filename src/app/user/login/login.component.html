@@ -13,12 +13,11 @@
           <input type="password" matInput placeholder="Password" formControlName="password">
         </mat-form-field>
       </p>
-
-      <p *ngIf="error" class="error">
-        {{ error }}
-      </p>
-      <button type="submit" mat--button	>Login</button>
-      <button type="submit" mat-raised-button	>Register</button>
+  <div *ngIf="errorCounter === 3">
+    <ngx-captcha  [config]="captchaConfig"></ngx-captcha>
+  </div>
+      <button type="submit" mat-raised-button	[disabled]="isDisabled">Login</button>
+      <button (click)="navigateToRegistrationSite()" mat-raised-button	>Register</button>
 
 
 
