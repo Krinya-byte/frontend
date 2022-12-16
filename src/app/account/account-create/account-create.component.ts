@@ -43,7 +43,7 @@ export class AccountCreateComponent implements OnInit{
         localStorage.setItem('accountCreated', JSON.stringify(accounts));
       },
       (error : HttpStatusCode) => {
-
+          alert("Bad Request");
       });
   }
 

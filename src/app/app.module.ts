@@ -10,7 +10,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {UserModule} from "./user/user.module";
 import {AccountModule} from "./account/account.module";
-
+import {UserService} from "./user/user.service";
+import {AccountService} from "./account/account.service";
+import {AuthGuard} from "./common/AuthGuard"
 @NgModule({
   declarations: [
     AppComponent
@@ -23,7 +25,7 @@ import {AccountModule} from "./account/account.module";
     AccountModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService, AccountService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

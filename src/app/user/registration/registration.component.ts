@@ -32,10 +32,11 @@ export class RegistrationComponent {
     user.name = this.registerForm.get('name')?.value;
     user.password = this.registerForm.get('password')?.value;
     this.userService.createUser(user).subscribe(response => {
-      this.router.navigateByUrl(`${URL.login}`)
+      this.router.navigateByUrl(`${URL.login}`);
+      alert("Successful registration");
     },
       (error : HttpStatusCode) => {
-
+        alert("Bad Request");
       });
   }
 
