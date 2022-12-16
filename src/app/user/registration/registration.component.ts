@@ -5,6 +5,7 @@ import {UserService} from "../user.service";
 import {HttpStatusCode} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {URL} from "../../../environment/URL";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,7 @@ import {URL} from "../../../environment/URL";
 })
 export class RegistrationComponent {
   public myForm: any;
-  constructor(private userService: UserService, private router : Router) { }
+  constructor(private userService: UserService, private router : Router, private location : Location) { }
   ngOnInit() {
     this.myForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -36,5 +37,9 @@ export class RegistrationComponent {
       (error : HttpStatusCode) => {
 
       });
+  }
+
+  back() {
+    this.location.back();
   }
 }
