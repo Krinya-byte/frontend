@@ -5,10 +5,17 @@ import {AccountComponent} from "./account/account.component";
 import {AccountCreateComponent} from "./account-create/account-create.component";
 
 const routes: Routes = [
-  //{path:'', redirectTo:'accounts', pathMatch: "full"},
-  {path: ':userName/accounts', component: AccountListComponent},
-  {path: ':userName/account/:id', component: AccountComponent},
-  {path: ':userName/create', component: AccountCreateComponent}
+  {path:'', redirectTo:'list/:userName', pathMatch: "full"},
+  {
+    path: 'list/:userName',
+    component: AccountListComponent,
+    children: [
+      // {path: 'show/:id', component: AccountComponent},
+      // {path: 'create', component: AccountCreateComponent}
+    ]
+  },
+  {path: ':itemName', component: AccountComponent},
+  {path: 'create/:userName', component: AccountCreateComponent},
 ];
 
 @NgModule({

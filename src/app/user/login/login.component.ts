@@ -58,8 +58,13 @@ export class LoginComponent implements OnInit, OnDestroy{
   form: any;
   submit() {
     if (this.form.valid) {
-      this.userService.submitUser(this.form.get('username')?.value, this.form.get('password')?.value).subscribe(values => {
-          this.router.navigateByUrl(`${URL.user}/${URL.homepage}`)
+      this.userService.submitUser(this.form.get('username')?.value, this.form.get('password')?.value).subscribe((response) => {
+        localStorage.setItem('userName',response.userName);
+        localStorage.setItem('loginDate',response.loginDate);
+        localStorage.setItem('accounts',JSON.stringify(response.accounts));
+        localStorage.setItem('customerName',response.name);
+        localStorage.setItem('password',response.password);
+        this.router.navigate([`${URL.homepage}`,response.userName]);
         },
         (error1 : HttpErrorResponse) => {
           if( error1.status === HttpStatusCode.Unauthorized){

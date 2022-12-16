@@ -4,8 +4,8 @@ import {UserModule} from "./user/user.module";
 import {AccountModule} from "./account/account.module";
 
 const routes: Routes = [
-  {path: 'user', loadChildren: () => UserModule},
-  {path: 'account', loadChildren: () => AccountModule},
+  {path: 'user', loadChildren: () => import('./user/user.module').then(m => UserModule)},
+  {path: 'account', loadChildren: () =>  import('./account/account.module').then(m => AccountModule)},
   {path: '', redirectTo: "user", pathMatch: "full"}
 ];
 

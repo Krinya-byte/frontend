@@ -21,9 +21,9 @@ export class HttpService {
 
   }
 
-  post<T>(route: string, body: any): Observable<T | Object> {
+  post<T>(route: string, body: any, params?:HttpParams): Observable<T | Object> {
 
-    return this.http.post(`${this.url + route}`, body, {headers: this.httpHeader});
+    return this.http.post(`${this.url + route}`, body, {headers: this.httpHeader,params: params ? params : this.httpParam});
 
   }
 

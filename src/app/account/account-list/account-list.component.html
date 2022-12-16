@@ -1,1 +1,38 @@
-<p>account-list works!</p>
+<table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell *matHeaderCellDef> Customers Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="deadLine">
+    <th mat-header-cell *matHeaderCellDef> Deadline </th>
+    <td mat-cell *matCellDef="let element"> {{element.deadLine}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="itemName">
+    <th mat-header-cell *matHeaderCellDef> Items Name </th>
+    <td mat-cell *matCellDef="let element"> <button class="table-button" (click)="navigateToItemsPage(element)" mat-raised-button>{{element.itemName}}</button> </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Comment">
+    <th mat-header-cell *matHeaderCellDef> Comment </th>
+    <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<button (click)="navigateToHomePage()" mat-raised-button>Back</button>
+<button (click)="navigateToCreation()" mat-raised-button>Create</button>
+

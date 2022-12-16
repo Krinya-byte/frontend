@@ -1,12 +1,15 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppComponent} from './app.component';
-import {RouterOutlet} from "@angular/router";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AccountModule} from "./account/account.module";
+import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
 import {UserModule} from "./user/user.module";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {AccountModule} from "./account/account.module";
 
 @NgModule({
   declarations: [
@@ -14,11 +17,11 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    RouterOutlet,
     BrowserAnimationsModule,
-    AccountModule,
+    HttpClientModule,
     UserModule,
-    HttpClientModule
+    AccountModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

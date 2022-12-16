@@ -1,1 +1,17 @@
-<p>homepage works!</p>
+<mat-toolbar>
+  <span class="title">Homepage</span>
+  <button mat-button [matMenuTriggerFor]="options">Options</button>
+  <mat-menu #options="matMenu">
+    <button mat-menu-item (click)="navigateToAccounts()">Accounts</button>
+    <button mat-menu-item (click)="logOut()">
+      Log out
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<mat-card>
+  <mat-card-title>User data</mat-card-title>
+  <mat-card-content>
+    <p>{{userName}}</p>
+    <p>{{loginDate | date:'medium'}} </p>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,17 @@
+.title{
+  margin-right: 10px;
+}
+mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+mat-card{
+  margin: 20px 20px 20px 20px;
+  align-self: center;
+}
+mat-card-title{
+  margin: 5px 5px 5px 5px;
+}
+p{
+  font-weight: 200;
+}
