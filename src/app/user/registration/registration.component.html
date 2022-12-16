@@ -21,7 +21,7 @@
         <mat-error *ngIf="myError('password', 'required')">Password is required</mat-error>
       </mat-form-field>
       </p>
-      <button type="submit" mat-raised-button	>Register</button>
+      <button type="submit" mat-raised-button	[disabled]="!myForm.valid">Register</button>
       <button (click)="back()" mat-raised-button	>Back</button>
 
     </form>
