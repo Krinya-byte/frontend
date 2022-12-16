@@ -9,10 +9,6 @@ const routes: Routes = [
   {
     path: 'list/:userName',
     component: AccountListComponent,
-    children: [
-      // {path: 'show/:id', component: AccountComponent},
-      // {path: 'create', component: AccountCreateComponent}
-    ]
   },
   {path: ':itemName', component: AccountComponent},
   {path: 'create/:userName', component: AccountCreateComponent},

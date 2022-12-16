@@ -10,14 +10,14 @@ import {Account} from "../../models/Account";
   styleUrls: ['./account-create.component.css']
 })
 export class AccountCreateComponent implements OnInit{
-  myForm: any;
+  accountCreateForm: any;
   customerName : string | null = localStorage.getItem('customerName')
 
   constructor(private accountService: AccountService) {
   }
   ngOnInit(): void {
 
-    this.myForm = new FormGroup({
+    this.accountCreateForm = new FormGroup({
       customerName: new FormControl({value :this.customerName, disabled : true}),
       deadLine: new FormControl('', [Validators.required]),
       itemName: new FormControl('', [Validators.required]),
@@ -27,11 +27,11 @@ export class AccountCreateComponent implements OnInit{
   }
   submit() {
     let account : Account = new Account();
-    account.customerName = this.myForm.get('customerName')?.value;
-    account.deadLine = this.myForm.get('deadLine')?.value;
-    account.itemName = this.myForm.get('itemName')?.value;
-    account.comment = this.myForm.get('comment')?.value;
-    account.price = this.myForm.get('price')?.value;
+    account.customerName = this.accountCreateForm.get('customerName')?.value;
+    account.deadLine = this.accountCreateForm.get('deadLine')?.value;
+    account.itemName = this.accountCreateForm.get('itemName')?.value;
+    account.comment = this.accountCreateForm.get('comment')?.value;
+    account.price = this.accountCreateForm.get('price')?.value;
     let username = localStorage.getItem('userName');
     if(username)
       account.userName = username;
@@ -47,8 +47,8 @@ export class AccountCreateComponent implements OnInit{
       });
   }
 
-  public myError = (controlName: string, errorName: string) =>{
-    return this.myForm.controls[controlName].hasError(errorName);
+  public error = (controlName: string, errorName: string) =>{
+    return this.accountCreateForm.controls[controlName].hasError(errorName);
   }
 
 

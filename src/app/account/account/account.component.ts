@@ -10,7 +10,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent {
-  myForm: any;
+  accountDetailsForm: any;
   customerName : string | null = localStorage.getItem('customerName')
 
   constructor(private location: Location) {
@@ -21,7 +21,7 @@ export class AccountComponent {
       account = JSON.parse(account);
     if(account)
     {
-      this.myForm = new FormGroup({
+      this.accountDetailsForm = new FormGroup({
         customerName: new FormControl({value :this.customerName, disabled : true}),
         deadLine: new FormControl({value : account.deadLine, disabled : true}),
         itemName: new FormControl({value : account.itemName, disabled : true}),
@@ -33,5 +33,6 @@ export class AccountComponent {
 
   navigateBackToList() {
     this.location.back();
+    localStorage.removeItem('currentAccount');
   }
 }

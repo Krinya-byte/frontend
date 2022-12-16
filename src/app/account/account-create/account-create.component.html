@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Create Account</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="myForm" (ngSubmit)="submit()" class="reg-form">
+    <form [formGroup]="accountCreateForm" (ngSubmit)="submit()" class="reg-form">
       <p>
         <mat-form-field disabled="true">
           <input [disabled]="true" matInput type="text" placeholder="Customers Name" formControlName="customerName" id="customerName">
@@ -10,26 +10,26 @@
       <p>
         <mat-form-field>
           <input matInput type="date" placeholder="DeadLine" formControlName="deadLine" id="deadLine">
-          <mat-error *ngIf="myError('deadLine', 'required')">
+          <mat-error *ngIf="error('deadLine', 'required')">
             Dead line is required</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
           <input matInput type="text" placeholder="Items name" formControlName="itemName" id="itemName">
-          <mat-error *ngIf="myError('itemName', 'required')">Items name is required</mat-error>
+          <mat-error *ngIf="error('itemName', 'required')">Items name is required</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
           <input matInput type="text" placeholder="Comment" formControlName="comment" id="comment">
-          <mat-error *ngIf="myError('comment', 'required')">Password is required</mat-error>
+          <mat-error *ngIf="error('comment', 'required')">Password is required</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
           <input matInput type="number" placeholder="Price" formControlName="price" id="price">
-          <mat-error *ngIf="myError('price', 'required')">Password is required</mat-error>
+          <mat-error *ngIf="error('price', 'required')">Password is required</mat-error>
         </mat-form-field>
       </p>
       <button type="submit" mat-raised-button	>Create account</button>

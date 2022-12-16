@@ -13,24 +13,24 @@ import {Location} from "@angular/common";
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  public myForm: any;
+  public registerForm: any;
   constructor(private userService: UserService, private router : Router, private location : Location) { }
   ngOnInit() {
-    this.myForm = new FormGroup({
+    this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
   }
-  public myError = (controlName: string, errorName: string) =>{
-    return this.myForm.controls[controlName].hasError(errorName);
+  public error = (controlName: string, errorName: string) =>{
+    return this.registerForm.controls[controlName].hasError(errorName);
   }
 
   submit() {
     let user : User = new User();
-    user.userName = this.myForm.get('userName')?.value;
-    user.name = this.myForm.get('name')?.value;
-    user.password = this.myForm.get('password')?.value;
+    user.userName = this.registerForm.get('userName')?.value;
+    user.name = this.registerForm.get('name')?.value;
+    user.password = this.registerForm.get('password')?.value;
     this.userService.createUser(user).subscribe(response => {
       this.router.navigateByUrl(`${URL.login}`)
     },

@@ -73,6 +73,9 @@ export class LoginComponent implements OnInit, OnDestroy{
               this.isDisabled = true;
             }
           }
+          if (error1.status === HttpStatusCode.NotFound){
+            alert("User not found please register to the site")
+          }
         })
     }
   }
@@ -90,5 +93,9 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   navigateToRegistrationSite() {
     this.router.navigateByUrl(`${URL.registration}`);
+  }
+
+  error(controlName: string, errorName: string) {
+    return this.form.controls[controlName].hasError(errorName);
   }
 }
